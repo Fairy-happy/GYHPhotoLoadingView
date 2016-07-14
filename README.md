@@ -4,6 +4,8 @@
 ![GIF](https://raw.githubusercontent.com/gaoyuhang/GYHPhotoLoadingView/master/photo/testgif.gif)
 
 ##Usage
+### 第一种，根据加载的进度，环形加载
+```
     progressV = [[GYHCircleProgressView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 40)/2,(SCREEN_HEIGHT - 40)/2, 40, 40)];
     progressV.progressColor = [UIColor redColor];
     progressV.progressStrokeWidth = 3.0f;
@@ -22,4 +24,60 @@
         }
         progressV.hidden = YES;
     }];
+```
+### 第二种，模仿qq，微信的图片加载，一个环形的进度一直动画，内部有数字显示进度
+```
+- (GYHCircleLoadingView *)circleLoadingV
+{
+    if (!_circleLoadingV) {
+        _circleLoadingV = [[GYHCircleLoadingView alloc]initWithViewFrame:CGRectMake((SCREEN_WIDTH - 40)/2,(SCREEN_HEIGHT - 40)/2, 40, 40)];
+        [self.view addSubview:_circleLoadingV];
+    }
+    return _circleLoadingV;
+}
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    //此处清除内存中的图片，便于测试
+    [[SDImageCache sharedImageCache] clearDisk];
+    [[SDImageCache sharedImageCache] clearMemory];
+    
+    [self.circleLoadingV startAnimating];
+    
+    __weak __typeof__(self) block_self = self;
+    [self.imgV sd_setImageWithURL:[NSURL URLWithString:@"https://raw.githubusercontent.com/gaoyuhang/DayDayNews/master/photo/newsfresh.png"] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+        CGFloat progress = fabs(receivedSize/((CGFloat)expectedSize));
+        block_self.circleLoadingV.progress = progress;
+        
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (error) {
+            NSLog(@"此处应该弹框提示,并且隐藏progressV");
+        }
+        [block_self.circleLoadingV stopAnimating];
+    }];
+}
+```
+
+### 第三种，放微博的加载效果，里边是扇形加载
+```
+    progressV = [[GYHSectorProgressView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 22)/2,(SCREEN_HEIGHT - 22)/2, 22, 22)];
+    progressV.progressColor = [UIColor colorWithWhite:1 alpha:0.7];
+    progressV.progressStrokeWidth = 22.0f;
+    progressV.progressTrackColor = [UIColor clearColor];
+    [self.view addSubview:progressV];
+    
+    __weak __typeof__(self) block_self = self;
+    [self.imgV sd_setImageWithURL:[NSURL URLWithString:@"https://raw.githubusercontent.com/gaoyuhang/DayDayNews/master/photo/newsfresh.png"] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+        CGFloat progress = fabs(receivedSize/((CGFloat)expectedSize));
+        [block_self animate:progress];
+        
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (error) {
+            NSLog(@"此处应该弹框提示,并且隐藏progressV");
+        }
+        progressV.hidden = YES;
+    }];
+```
