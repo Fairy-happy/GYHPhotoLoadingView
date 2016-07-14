@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SectorProgressViewController.h
 //  GYHPhotoLoadingView
 //
 //  Created by 范英强 on 16/7/13.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UITableViewController
-
+@interface SectorProgressViewController : UIViewController
 
 @end
-
