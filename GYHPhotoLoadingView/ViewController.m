@@ -31,8 +31,6 @@
     
     self.titleArr = @[@"环形加载",@"进度",@"扇形"];
     self.imgArr = @[[UIImage imageNamed:@"one"],[UIImage imageNamed:@"two"],[UIImage imageNamed:@"three"]];
-    
-    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
