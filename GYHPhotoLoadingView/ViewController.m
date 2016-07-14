@@ -30,6 +30,7 @@
     self.tableView.tableFooterView = [[UIView alloc]init];
     
     self.titleArr = @[@"环形加载",@"进度",@"扇形"];
+    self.imgArr = @[[UIImage imageNamed:@"one"],[UIImage imageNamed:@"two"],[UIImage imageNamed:@"three"]];
     
     
 }
@@ -46,6 +47,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
+    cell.imageView.image = self.imgArr[indexPath.row];
     cell.textLabel.text = self.titleArr[indexPath.row];
     return cell;
 }
