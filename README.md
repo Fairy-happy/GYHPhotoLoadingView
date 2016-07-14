@@ -1,10 +1,13 @@
 # GYHPhotoLoadingView
 整合了市面上主流app的图片加载指示器，环形加载，扇形加载，仿qq，微信，微博图片加载指示器
 ![image](https://raw.githubusercontent.com/gaoyuhang/GYHPhotoLoadingView/master/photo/haha.png)
-
+## GIF
 ![GIF](https://raw.githubusercontent.com/gaoyuhang/GYHPhotoLoadingView/master/photo/testgif.gif)
 
 ##Usage
+![image](https://raw.githubusercontent.com/gaoyuhang/GYHPhotoLoadingView/master/photo/jiegou.png) <br>
+使用的时候直接把对应的类拖入自己的项目中即可，具体使用方法见Demo
+
 ### 第一种，根据加载的进度，环形加载
 ```
     progressV = [[GYHCircleProgressView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 40)/2,(SCREEN_HEIGHT - 40)/2, 40, 40)];
