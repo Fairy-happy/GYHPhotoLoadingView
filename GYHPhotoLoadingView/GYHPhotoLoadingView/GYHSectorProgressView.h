@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface GYHSectorProgressView : UIView
+
+- (instancetype)initWithCenter:(CGPoint)center;
 /**
  *  进度值0-1.0之间
  */

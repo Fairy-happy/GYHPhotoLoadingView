@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface GYHCircleProgressView : UIView
+
+// 只需创建初始化view，并设置frame即可使用
+// 默认线宽为3.0f，进度条的轨道颜色为gray，进度条的颜色为red
+// 如果需要更改，在外部进行赋值
 /**
- *  进度值0-1.0之间
+ *  加载的进度
  */
 @property (nonatomic,assign)CGFloat progressValue;
 

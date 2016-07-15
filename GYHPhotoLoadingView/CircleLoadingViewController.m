@@ -37,7 +37,9 @@
     [[SDImageCache sharedImageCache] clearDisk];
     [[SDImageCache sharedImageCache] clearMemory];
     
+    //开始加载
     [self.circleLoadingV startAnimating];
+    
     
     __weak __typeof__(self) block_self = self;
     [self.imgV sd_setImageWithURL:[NSURL URLWithString:@"https://raw.githubusercontent.com/gaoyuhang/DayDayNews/master/photo/newsfresh.png"] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
@@ -49,6 +51,7 @@
         if (error) {
             NSLog(@"此处应该弹框提示,并且隐藏progressV");
         }
+        //加载完成或者失败都需要隐藏
         [block_self.circleLoadingV stopAnimating];
     }];
 }
