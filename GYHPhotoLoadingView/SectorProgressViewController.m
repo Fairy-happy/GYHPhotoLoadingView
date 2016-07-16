@@ -28,14 +28,12 @@
 
     [[SDImageCache sharedImageCache] clearDisk];
     [[SDImageCache sharedImageCache] clearMemory];
+
     
-    
-//    progressV = [[GYHSectorProgressView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 40)/2,(SCREEN_HEIGHT - 40)/2, 40, 40)];
-        progressV = [[GYHSectorProgressView alloc]initWithCenter:CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)];
-//    progressV.progressColor = [UIColor colorWithWhite:1 alpha:0.7];
-//    progressV.progressStrokeWidth = 22.0f;
-//    progressV.progressTrackColor = [UIColor clearColor];
+    progressV = [[GYHSectorProgressView alloc]initWithCenter:CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)];
     [self.view addSubview:progressV];
+    //设置扇形的颜色
+//    progressV.progressColor = [UIColor redColor];
     
     __weak __typeof__(self) block_self = self;
     [self.imgV sd_setImageWithURL:[NSURL URLWithString:@"https://raw.githubusercontent.com/gaoyuhang/DayDayNews/master/photo/newsfresh.png"] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {

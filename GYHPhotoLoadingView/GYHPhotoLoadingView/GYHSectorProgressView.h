@@ -10,6 +10,9 @@
 
 @interface GYHSectorProgressView : UIView
 
+/**
+ *  初始化，只需传入view的center即可
+ */
 - (instancetype)initWithCenter:(CGPoint)center;
 /**
  *  进度值0-1.0之间
@@ -17,17 +20,8 @@
 @property (nonatomic,assign)CGFloat progressValue;
 
 /**
- *  边宽
- */
-@property(nonatomic,assign) CGFloat progressStrokeWidth;
-
-/**
- *  进度条颜色
+ *  扇形颜色
  */
 @property(nonatomic,strong)UIColor *progressColor;
 
-/**
- *  进度条轨道颜色
- */
-@property(nonatomic,strong)UIColor *progressTrackColor;
 @end

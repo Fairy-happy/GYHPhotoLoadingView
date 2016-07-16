@@ -5,6 +5,9 @@
 //  Created by 范英强 on 16/7/13.
 //  Copyright © 2016年 gyh. All rights reserved.
 //
+#define SCREEN_WIDTH    [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT   [UIScreen mainScreen].bounds.size.height
+
 
 #import "GYHSectorProgressView.h"
 
@@ -16,23 +19,6 @@
 @end
 
 @implementation GYHSectorProgressView
-
-- (instancetype)init
-{
-    if (self = [super init]) {
-//        self.frame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
-//        [self setUp];
-    }
-    return self;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    if (self = [super initWithFrame:frame]) {
-        
-    }
-    return self;
-}
 
 - (instancetype)initWithCenter:(CGPoint)center
 {
