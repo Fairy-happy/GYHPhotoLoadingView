@@ -21,7 +21,7 @@
  *  进度
  */
 @property (nonatomic) CGFloat                 progress;
-@property (nonatomic, readonly) BOOL          animating;
+@property (nonatomic) BOOL                    isShowProgress;   //是否展示进度
 
 /**
  *  开始动画，初始化完成之后就可以调用start

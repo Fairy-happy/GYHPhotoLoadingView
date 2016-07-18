@@ -70,7 +70,7 @@ static const CGFloat kLineWidth = 3.0f;
     totalCircle.frame = CGRectMake((self.layer.bounds.size.width - size.width)/2, (self.layer.bounds.size.height - size.height) / 2, size.width, size.height);
     [totalCircle addAnimation:rotateAnimation forKey:@"animation"];
     [self.layer addSublayer:totalCircle];
-    
+
     UILabel *label = [[UILabel alloc]init];
     label.frame = CGRectMake(5, 10, 30, 20);
     label.font = [UIFont systemFontOfSize:11];
@@ -82,7 +82,15 @@ static const CGFloat kLineWidth = 3.0f;
 
 - (void)setProgress:(CGFloat)progress
 {
-    self.progressLabel.text = [NSString stringWithFormat:@"%.f%%",progress*100];
+    if (_isShowProgress) {
+        self.progressLabel.text = [NSString stringWithFormat:@"%.f%%",progress*100];
+    }
+}
+
+- (void)setIsShowProgress:(BOOL)isShowProgress
+{
+    _isShowProgress = isShowProgress;
+    self.progressLabel.hidden = !isShowProgress;
 }
 
 
@@ -91,13 +99,11 @@ static const CGFloat kLineWidth = 3.0f;
     if (!self.layer.sublayers) {
         [self setupAnimation];
     }
-    _animating = YES;
 }
 
 - (void)stopAnimating {
     [self.layer removeAllAnimations];
     self.hidden = YES;
-    _animating = NO;
 }
 
 

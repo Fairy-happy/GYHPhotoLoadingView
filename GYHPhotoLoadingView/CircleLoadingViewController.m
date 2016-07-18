@@ -25,6 +25,7 @@
 {
     if (!_circleLoadingV) {
         _circleLoadingV = [[GYHCircleLoadingView alloc]initWithViewFrame:CGRectMake((SCREEN_WIDTH - 40)/2,(SCREEN_HEIGHT - 40)/2, 40, 40)];
+        _circleLoadingV.isShowProgress = YES;   //设置中间label进度条
         [self.view addSubview:_circleLoadingV];
     }
     return _circleLoadingV;
