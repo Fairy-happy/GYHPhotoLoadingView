@@ -68,7 +68,7 @@
 }
 ```
 
-### 第三种，放微博的加载效果，里边是扇形加载
+### 第三种，仿微博的加载效果，里边是扇形加载
 ```
     progressV = [[GYHSectorProgressView alloc]initWithCenter:CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)];
     [self.view addSubview:progressV];
